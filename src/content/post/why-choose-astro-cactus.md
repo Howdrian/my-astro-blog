@@ -4,9 +4,6 @@ description: "详细介绍Astro Cactus博客模板的强大功能和优势，以
 publishDate: "2024-09-18"
 tags: ["Astro", "模板", "技术选型"]
 draft: false
-coverImage:
-  src: ""
-  alt: "Astro Cactus博客模板功能展示"
 ---
 
 ## 模板选择的重要性
