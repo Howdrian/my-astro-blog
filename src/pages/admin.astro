@@ -1,0 +1,80 @@
+---
+// Sanity Studio 管理界面
+// 访问 /admin 路径查看内容管理界面
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>博客管理</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        font-family: system-ui, sans-serif;
+        background: #f8f9fa;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .setup-info {
+        background: #e3f2fd;
+        padding: 1rem;
+        border-radius: 4px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 博客内容管理</h1>
+      <p>欢迎来到您的博客管理后台！</p>
+      
+      <div class="setup-info">
+        <h3>🔧 设置说明</h3>
+        <p>Sanity CMS 已经安装，请按以下步骤完成设置：</p>
+        <ol>
+          <li>在 <a href="https://sanity.io" target="_blank">sanity.io</a> 注册账号并创建项目</li>
+          <li>获取项目 ID 并更新 <code>.env</code> 文件中的 <code>PUBLIC_SANITY_PROJECT_ID</code></li>
+          <li>运行 <code>npm install -g @sanity/cli</code> 安装 Sanity CLI</li>
+          <li>运行 <code>sanity login</code> 登录您的账号</li>
+          <li>运行 <code>sanity cors add http://localhost:4322</code> 添加开发环境域名</li>
+          <li>部署后添加生产环境域名：<code>sanity cors add https://yourdomain.com</code></li>
+        </ol>
+        
+        <h4>📝 创建第一篇文章</h4>
+        <p>设置完成后，您可以：</p>
+        <ul>
+          <li>访问 <a href="https://yourdomain.sanity.studio/" target="_blank">Sanity Studio</a> 管理内容</li>
+          <li>或使用 <code>sanity start</code> 本地启动 Studio</li>
+          <li>创建您的第一篇博客文章</li>
+          <li>管理文章标签和分类</li>
+        </ul>
+      </div>
+      
+      <h3>📊 当前状态</h3>
+      <ul>
+        <li>✅ Sanity CMS 已安装</li>
+        <li>✅ 数据模型已配置</li>
+        <li>⚠️ 需要配置项目 ID</li>
+      </ul>
+      
+      <a href="/" style="
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+      ">返回首页</a>
+    </div>
+  </body>
+</html>
