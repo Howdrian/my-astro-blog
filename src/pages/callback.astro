@@ -1,0 +1,91 @@
+---
+// Sanity 认证回调页面
+// 处理来自 Sanity Studio 的认证回调
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>认证回调</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        font-family: system-ui, sans-serif;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 500px;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      .loading {
+        margin: 1rem 0;
+      }
+      .spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #2563eb;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🔐 Sanity 认证处理中...</h2>
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>正在处理认证回调，请稍候...</p>
+      </div>
+      
+      <p><small>如果此页面长时间未响应，请检查Sanity配置或重新登录。</small></p>
+      
+      <script>
+        // 处理 Sanity 认证回调
+        function handleSanityCallback() {
+          const urlParams = new URLSearchParams(window.location.search);
+          const sid = urlParams.get('sid');
+          const redirectUrl = urlParams.get('url');
+          
+          if (sid && redirectUrl) {
+            // 如果有认证信息，重定向到 Sanity API
+            window.location.href = redirectUrl;
+          } else {
+            // 如果没有认证信息，显示错误
+            document.querySelector('.container').innerHTML = `
+              <h2>❌ 认证参数缺失</h2>
+              <p>未找到必要的认证参数。</p>
+              <a href="/admin" style="
+                display: inline-block;
+                margin-top: 1rem;
+                padding: 0.5rem 1rem;
+                background: #2563eb;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+              ">返回管理页面</a>
+            `;
+          }
+        }
+        
+        // 页面加载后立即处理回调
+        handleSanityCallback();
+      </script>
+    </div>
+  </body>
+</html>

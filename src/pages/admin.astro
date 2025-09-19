@@ -38,32 +38,37 @@
       <p>欢迎来到您的博客管理后台！</p>
       
       <div class="setup-info">
-        <h3>🔧 设置说明</h3>
-        <p>Sanity CMS 已经安装，请按以下步骤完成设置：</p>
+        <h3>🔧 快速设置 Sanity CMS</h3>
+        <p>使用项目本地脚本快速完成设置：</p>
         <ol>
           <li>在 <a href="https://sanity.io" target="_blank">sanity.io</a> 注册账号并创建项目</li>
           <li>获取项目 ID 并更新 <code>.env</code> 文件中的 <code>PUBLIC_SANITY_PROJECT_ID</code></li>
-          <li>运行 <code>npm install -g @sanity/cli</code> 安装 Sanity CLI</li>
-          <li>运行 <code>sanity login</code> 登录您的账号</li>
-          <li>运行 <code>sanity cors add http://localhost:4322</code> 添加开发环境域名</li>
-          <li>部署后添加生产环境域名：<code>sanity cors add https://yourdomain.com</code></li>
+          <li>运行 <code>npm run sanity:login</code> 登录您的账号</li>
+          <li>运行 <code>npm run sanity:cors</code> 配置开发环境CORS</li>
+          <li>运行 <code>npm run sanity:studio</code> 启动本地Studio</li>
         </ol>
         
-        <h4>📝 创建第一篇文章</h4>
-        <p>设置完成后，您可以：</p>
+        <h4>📝 内容管理选项</h4>
+        <p>设置完成后，您可以通过以下方式管理内容：</p>
         <ul>
-          <li>访问 <a href="https://yourdomain.sanity.studio/" target="_blank">Sanity Studio</a> 管理内容</li>
-          <li>或使用 <code>sanity start</code> 本地启动 Studio</li>
-          <li>创建您的第一篇博客文章</li>
-          <li>管理文章标签和分类</li>
+          <li><strong>本地Studio：</strong>运行 <code>npm run sanity:studio</code> 本地管理</li>
+          <li><strong>在线Studio：</strong>访问 <a href="https://yourproject.sanity.studio/" target="_blank">yourproject.sanity.studio</a></li>
+          <li><strong>移动端：</strong>下载Sanity Mobile App随时更新内容</li>
         </ul>
+        
+        <div style="background: #f0f9ff; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+          <h5>💡 提示</h5>
+          <p>首次使用时可能遇到认证回调404错误，这是正常现象。我们已经创建了 <code>/callback</code> 页面来处理认证。</p>
+        </div>
       </div>
       
       <h3>📊 当前状态</h3>
       <ul>
         <li>✅ Sanity CMS 已安装</li>
         <li>✅ 数据模型已配置</li>
+        <li>✅ 认证回调页面已创建</li>
         <li>⚠️ 需要配置项目 ID</li>
+        <li>⚠️ 需要完成登录认证</li>
       </ul>
       
       <a href="/" style="
