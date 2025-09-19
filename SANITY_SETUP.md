@@ -31,27 +31,48 @@ PUBLIC_SANITY_API_VERSION=2024-09-18
 
 **重要**：在Vercel中也要添加相同的环境变量！
 
-### 4. 安装Sanity CLI (可选但推荐)
+### 4. 使用Sanity CLI (推荐使用npx)
 
+**推荐方式：使用npx（无需安装）**
 ```bash
-# 全局安装Sanity CLI
-npm install -g @sanity/cli
-
 # 登录到您的Sanity账号
-sanity login
+npx @sanity/cli login
 
 # 验证登录状态
-sanity whoami
+npx @sanity/cli whoami
+
+# 配置CORS
+npx @sanity/cli cors add http://localhost:4322 --credentials
+npx @sanity/cli cors add https://您的域名.vercel.app --credentials
+```
+
+**或者本地安装（项目级别，已配置）**
+```bash
+# 已经在项目中安装了@sanity/cli
+# 可以使用便利的npm scripts：
+
+# 登录Sanity
+npm run sanity:login
+
+# 或直接使用npx
+npx sanity login
+npx sanity whoami
+
+# 配置CORS（开发环境）
+npm run sanity:cors http://localhost:4322 --credentials
+
+# 配置CORS（生产环境）
+npm run sanity:cors https://您的域名.vercel.app --credentials
 ```
 
 ### 5. 配置CORS (跨域访问权限)
 
 ```bash
 # 开发环境
-sanity cors add http://localhost:4322 --credentials
+npx @sanity/cli cors add http://localhost:4322 --credentials
 
 # 生产环境 (部署到Vercel后执行)
-sanity cors add https://您的域名.vercel.app --credentials
+npx @sanity/cli cors add https://您的域名.vercel.app --credentials
 ```
 
 ## 🛠️ 使用Sanity Studio
@@ -61,8 +82,12 @@ sanity cors add https://您的域名.vercel.app --credentials
 
 ### 方法2：本地Studio
 ```bash
-# 在项目目录中启动本地Studio
-sanity start
+# 使用npm script（推荐）
+npm run sanity:studio
+
+# 或使用npx
+npx sanity start
+
 # 访问：http://localhost:3333
 ```
 
@@ -94,13 +119,13 @@ A: 检查以下几点：
 ### Q: 本地开发时无法连接Sanity？
 A: 执行以下命令：
 ```bash
-sanity cors add http://localhost:4322 --credentials
+npx @sanity/cli cors add http://localhost:4322 --credentials
 ```
 
 ### Q: 部署后无法访问Sanity？
 A: 添加生产环境CORS：
 ```bash
-sanity cors add https://您的域名.vercel.app --credentials
+npx @sanity/cli cors add https://您的域名.vercel.app --credentials
 ```
 
 ### Q: API版本有什么影响？
