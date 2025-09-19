@@ -27,7 +27,7 @@ export const siteConfig: SiteConfig = {
 	*/
 	title: "我的个人博客",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "https://your-vercel-domain.vercel.app", // 请替换为您的实际Vercel域名
+	url: "https://hacccc.vercel.app", // Vercel部署域名
 };
 
 // Used to generate links in both the Header & Footer.
