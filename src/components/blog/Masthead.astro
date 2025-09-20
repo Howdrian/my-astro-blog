@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
+import { urlFor } from "@/lib/sanity";
+import type { SanityPost } from "@/types";
 
 interface Props {
-	content: CollectionEntry<"post">;
+	content: SanityPost;
 	readingTime: string;
 }
 
@@ -22,12 +23,11 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	data.coverImage && (
 		<div class="mb-6 aspect-video">
 			<Image
-				alt={data.coverImage.alt}
-				layout="constrained"
+				alt={data.coverImage.alt ?? "Cover Image"}
 				width={748}
 				height={420}
 				priority
-				src={data.coverImage.src}
+				src={urlFor(data.coverImage).width(748).height(420).url()}
 			/>
 		</div>
 	)

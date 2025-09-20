@@ -70,6 +70,19 @@
 					"correctness": {
 						"noUnusedVariables": "off",
 						"noUnusedImports": "off"
+					},
+					"suspicious": {
+						"noConfusingLabels": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["**/*.css"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noUnknownAtRules": "off"
 					}
 				}
 			}
