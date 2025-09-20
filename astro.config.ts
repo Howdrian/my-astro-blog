@@ -3,6 +3,7 @@ import fs from "node:fs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import sanity from "@sanity/astro";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
 import expressiveCode from "astro-expressive-code";
@@ -26,6 +27,12 @@ export default defineConfig({
 		domains: ["webmention.io"],
 	},
 	integrations: [
+		sanity({
+			projectId: "6q0j5q6k",
+			dataset: "production",
+			useCdn: false,
+			apiVersion: "2024-09-18",
+		}),
 		expressiveCode(expressiveCodeOptions),
 		icon(),
 		sitemap(),
@@ -86,12 +93,17 @@ export default defineConfig({
 			},
 		},
 	},
-	vite: {
-		optimizeDeps: {
-			exclude: ["@resvg/resvg-js"],
-		},
-		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
-	},
+  vite: {
+    resolve: {
+      alias: {
+        '@': '/src',
+      },
+    },
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
+    plugins: [...tailwind(), rawFonts([".ttf", ".woff"])] as any,
+  },
 	env: {
 		schema: {
 			WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),

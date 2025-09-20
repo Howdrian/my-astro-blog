@@ -80,4 +80,24 @@ export interface Summary {
 	value: string;
 }
 
+import type { Image, PortableTextBlock } from "@sanity/types";
+
+export interface SanityPost {
+	id: string;
+	slug: string;
+	body: PortableTextBlock[];
+	collection: "post";
+	data: {
+		title: string;
+		description: string;
+		publishDate: Date;
+		updatedDate?: Date;
+		tags: string[];
+		featured: boolean;
+		draft: boolean;
+		pinned: boolean;
+		coverImage?: Image & { alt?: string };
+	};
+}
+
 export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";
