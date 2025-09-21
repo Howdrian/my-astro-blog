@@ -3,7 +3,7 @@ import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "您的姓名",
+	author: "Hac",
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
 		locale: "zh-CN",
@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Used as the default description meta property and webmanifest description
-	description: "分享各类经验想法、工具等的个人博客",
+	description: "欢迎来到Hac的储物室。这里存放着关于技术、工具和生活的随想与文章，一个记录学习与思考的数字花园。",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
 	lang: "zh-CN",
 	// Meta property, found in src/components/BaseHead.astro L:42
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
 		- The link value found in src/components/layout/Header.astro L:35
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
-	title: "我的个人博客",
+	title: "储物室",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
 	url: "https://hacccc.vercel.app", // Vercel部署域名
 };
