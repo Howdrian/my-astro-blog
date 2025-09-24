@@ -42,6 +42,7 @@ export async function getAllPosts(): Promise<SanityPost[]> {
         featured: post.featured ?? false,
         draft: post.draft ?? false,
         pinned: post.pinned ?? false,
+        ogImage: undefined,
         coverImage: post.coverImage,
       },
     };

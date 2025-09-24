@@ -16,7 +16,7 @@
 
 创建项目后，您会看到：
 ```
-Project ID: abc123def (8-10位字符串)
+Project ID: pc4vypln
 Dataset: production
 ```
 
@@ -24,7 +24,7 @@ Dataset: production
 
 在项目根目录的 `.env` 文件中更新：
 ```env
-PUBLIC_SANITY_PROJECT_ID=您的实际项目ID
+PUBLIC_SANITY_PROJECT_ID=pc4vypln
 PUBLIC_SANITY_DATASET=production
 PUBLIC_SANITY_API_VERSION=2024-09-18
 ```
@@ -49,20 +49,20 @@ npx @sanity/cli cors add https://您的域名.vercel.app --credentials
 **或者本地安装（项目级别，已配置）**
 ```bash
 # 已经在项目中安装了@sanity/cli
-# 可以使用便利的npm scripts：
+# 可以使用项目脚本：
 
 # 登录Sanity
-npm run sanity:login
+pnpm sanity:login
 
 # 或直接使用npx
 npx sanity login
 npx sanity whoami
 
 # 配置CORS（开发环境）
-npm run sanity:cors http://localhost:4322 --credentials
+pnpm sanity:cors http://localhost:4322 --credentials
 
 # 配置CORS（生产环境）
-npm run sanity:cors https://您的域名.vercel.app --credentials
+pnpm sanity:cors https://您的域名.vercel.app --credentials
 ```
 
 ### 5. 配置CORS (跨域访问权限)
@@ -78,12 +78,12 @@ npx @sanity/cli cors add https://您的域名.vercel.app --credentials
 ## 🛠️ 使用Sanity Studio
 
 ### 方法1：在线Studio (推荐)
-访问：`https://您的项目ID.sanity.studio/`
+访问：`https://pc4vypln.sanity.studio/`
 
 ### 方法2：本地Studio
 ```bash
-# 使用npm script（推荐）
-npm run sanity:studio
+# 使用项目脚本（推荐）
+pnpm sanity:studio
 
 # 或使用npx
 npx sanity start

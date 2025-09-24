@@ -8,24 +8,18 @@ interface Props {
 
 const { value } = Astro.props;
 
-console.log("=== SanityImage Debug ===");
-console.log("Props received:", JSON.stringify(value, null, 2));
+let imageUrl = "";
+let altText = "Blog image";
 
-let imageUrl: string = "";
-let altText: string = "Blog image";
-
-if (value && value.asset) {
+if (value?.asset) {
 	try {
 		imageUrl = urlFor(value).width(800).quality(80).url();
 		altText = value.alt || "Blog image";
-		console.log("Generated image URL:", imageUrl);
 	} catch (error) {
-		console.error("Error generating image URL:", error);
 		imageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='400' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3EImage not available%3C/text%3E%3C/svg%3E";
 		altText = "Image not available";
 	}
 } else {
-	console.warn("No valid image data received");
 	imageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='400' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3ENo image data%3C/text%3E%3C/svg%3E";
 	altText = "No image data";
 }

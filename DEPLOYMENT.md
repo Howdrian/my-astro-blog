@@ -4,7 +4,7 @@
 
 ### 1. GitHub仓库配置
 ```bash
-# 1. 在GitHub创建新仓库 (例如: my-astro-blog)
+# 1. 在GitHub创建新仓库 (示例: AutoBlog)
 # 2. 添加远程仓库
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 git push -u origin main
@@ -17,13 +17,13 @@ git push -u origin main
 2. 选择您的GitHub仓库
 3. 项目设置：
    - **Framework**: Astro (自动检测)
-   - **Build Command**: `npm run build`
+   - **Build Command**: `pnpm build`
    - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
+   - **Install Command**: `pnpm install`
 
 #### 环境变量设置：
 ```env
-PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
+PUBLIC_SANITY_PROJECT_ID=pc4vypln
 PUBLIC_SANITY_DATASET=production
 PUBLIC_SANITY_API_VERSION=2024-01-01
 ```
@@ -50,16 +50,16 @@ sanity cors add https://your-domain.vercel.app
 
 ```bash
 # 安装依赖
-npm install
+pnpm install
 
 # 启动开发服务器
-npm run dev
+pnpm dev
 
 # 构建生产版本
-npm run build
+pnpm build
 
 # 预览生产版本
-npm run preview
+pnpm preview
 ```
 
 ## 📝 内容管理
@@ -91,7 +91,7 @@ npm run preview
 检查 `package.json` 中的依赖版本，确保兼容性。
 
 ### 搜索不工作
-搜索功能只在生产环境有效，本地开发请运行 `npm run build && npm run preview`。
+搜索功能只在生产环境有效，本地开发请运行 `pnpm build && pnpm preview`。
 
 ### Sanity内容不显示
 检查环境变量配置和CORS设置。

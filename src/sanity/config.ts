@@ -7,7 +7,7 @@ export default defineConfig({
 	name: "default",
 	title: "我的个人博客",
 
-	projectId: "your-project-id", // 需要替换为您的Sanity项目ID
+	projectId: "pc4vypln",
 	dataset: "production",
 
 	plugins: [structureTool(), visionTool()],

@@ -96,6 +96,7 @@ export interface SanityPost {
 		featured: boolean;
 		draft: boolean;
 		pinned: boolean;
+		ogImage?: string;
 		coverImage?: Image & { alt?: string };
 	};
 }

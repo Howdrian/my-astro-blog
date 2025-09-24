@@ -18,17 +18,6 @@ const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
 // render() is removed, so we lose remark-based reading time and headings for now.
 const readingTime: string = ""; // Placeholder for reading time
 
-const customComponents = {
-	types: {
-		image: SanityImage,
-	},
-};
-
-console.log("=== BlogPost Debug ===");
-console.log("Post body:", post.body?.slice(0, 2) || 'No body content');
-console.log("Post body type:", typeof post.body);
-console.log("Post body is array:", Array.isArray(post.body));
-console.log("Custom components:", customComponents);
 ---
 
 <BaseLayout
@@ -47,21 +36,13 @@ console.log("Custom components:", customComponents);
 				class="prose prose-sm prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-gray-600 prose-headings:hover:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
 			>
 				{post.body && Array.isArray(post.body) ? (
-					<>
-						{post.body.map((block, index) => {
-							if (block._type === 'image' && block.asset) {
-								// 渲染图片块
-								return (
-									<SanityImage key={index} value={block} />
-								);
-							} else {
-								// 渲染单个非图片块
-								return (
-									<PortableText key={index} value={[block]} />
-								);
-							}
-						})}
-					</>
+					post.body.map((block) =>
+						block._type === "image" && "asset" in block && block.asset ? (
+							<SanityImage value={block} />
+						) : (
+							<PortableText value={[block]} />
+						),
+					)
 				) : (
 					<div class="text-gray-500">暂无内容</div>
 				)}

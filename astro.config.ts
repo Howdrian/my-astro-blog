@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import sanity from "@sanity/astro";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
+import type { PluginOption } from "vite";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
@@ -20,6 +21,8 @@ import { remarkGithubCard } from "./src/plugins/remark-github-card";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 
+const tailwindPlugins = tailwind() as PluginOption[];
+
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.url,
@@ -28,7 +31,7 @@ export default defineConfig({
 	},
 	integrations: [
 		sanity({
-			projectId: "6q0j5q6k",
+			projectId: "pc4vypln",
 			dataset: "production",
 			useCdn: false,
 			apiVersion: "2024-09-18",
@@ -93,17 +96,17 @@ export default defineConfig({
 			},
 		},
 	},
-  vite: {
-    resolve: {
-      alias: {
-        '@': '/src',
-      },
-    },
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
-    plugins: [...tailwind(), rawFonts([".ttf", ".woff"])] as any,
-  },
+	  vite: {
+	    resolve: {
+	      alias: {
+	        '@': '/src',
+	      },
+	    },
+	    optimizeDeps: {
+	      exclude: ["@resvg/resvg-js"],
+	    },
+	    plugins: [...tailwindPlugins, rawFonts([".ttf", ".woff"])],
+	  },
 	env: {
 		schema: {
 			WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
@@ -113,7 +116,7 @@ export default defineConfig({
 	},
 });
 
-function rawFonts(ext: string[]) {
+function rawFonts(ext: string[]): PluginOption {
 	return {
 		name: "vite-plugin-raw-fonts",
 		// @ts-expect-error:next-line

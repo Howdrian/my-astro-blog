@@ -7,7 +7,7 @@ export default defineConfig({
 	name: "default",
 	title: "我的个人博客",
 
-	projectId: "6q0j5q6k",
+	projectId: "pc4vypln",
 	dataset: "production",
 
 	plugins: [structureTool(), visionTool()],

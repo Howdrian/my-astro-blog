@@ -26,20 +26,21 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/Howdrian/my-astro-blog.git
-cd my-astro-blog
+git clone https://github.com/Howdrian/AutoBlog.git
+cd AutoBlog
 
-# 安装依赖
-npm install
+# 准备并安装依赖
+corepack enable pnpm
+pnpm install
 
 # 启动开发服务器
-npm run dev
+pnpm dev
 
 # 构建生产版本
-npm run build
+pnpm build
 
 # 预览生产版本
-npm run preview
+pnpm preview
 ```
 
 ## 🌐 部署
@@ -54,7 +55,7 @@ npm run preview
 ### 环境变量配置
 
 ```env
-PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
+PUBLIC_SANITY_PROJECT_ID=pc4vypln
 PUBLIC_SANITY_DATASET=production
 PUBLIC_SANITY_API_VERSION=2024-01-01
 ```
@@ -66,7 +67,7 @@ PUBLIC_SANITY_API_VERSION=2024-01-01
 1. 在 [sanity.io](https://sanity.io) 创建新项目
 2. 获取项目 ID 并更新环境变量
 3. 配置 CORS 允许您的域名
-4. 访问 `https://your-project.sanity.studio/` 开始创作
+4. 访问 `https://pc4vypln.sanity.studio/` 开始创作
 
 ### 本地 Sanity Studio
 
