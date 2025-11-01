@@ -20,7 +20,7 @@
 	"dependencies": {
 		"@astrojs/markdown-remark": "^6.3.6",
 		"@astrojs/mdx": "4.3.5",
-		"@astrojs/rss": "4.0.12",
+		"@astrojs/rss": "4.0.13",
 		"@astrojs/sitemap": "3.5.1",
 		"@sanity/astro": "^3.2.10",
 		"@sanity/client": "^7.11.2",
